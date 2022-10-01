@@ -22,6 +22,8 @@ export class Canvas {
 
     static clear() {
         Canvas.context.clearRect(0, 0, Canvas.src.width, Canvas.src.height);
+        // Canvas.context.fillStyle = ''
+        // Canvas.context.fillRect(0, 0, Canvas.src.width, Canvas.src.height)
     }
 
     static save() {

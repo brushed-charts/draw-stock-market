@@ -58,7 +58,7 @@ export class Curve {
 
     static draw() {
         for (const point of base_curve) {
-            Drawer.drawAnchor(point, 'black')
+            Drawer.drawAnchor(point, 'white')
         }
         Drawer.drawCurve(line_points)
     }

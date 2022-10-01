@@ -14,7 +14,7 @@ export class Drawer {
         Drawer.context.fill();
     }
 
-    static drawCurve(curve, color='black') {
+    static drawCurve(curve, color='white') {
         Drawer.context.beginPath();
         let previous_point = undefined
         for (const point of curve) {

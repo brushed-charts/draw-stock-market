@@ -11,4 +11,8 @@ export class Utils {
         const y_wanted = m*x+c
         return y_wanted
     }
+
+    static distance_between_point(pointA, pointB) {
+        return Math.hypot(pointB.x - pointA.x, pointB.y - pointA.y)
+    }
 }

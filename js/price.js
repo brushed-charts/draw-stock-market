@@ -1,5 +1,6 @@
 import { Drawer } from "./drawer.js"
 import { DrawTool } from "./drawtool.js"
+import { HandDraw } from "./handdraw.js"
 import { Mode } from "./mode.js"
 import { Utils } from "./utils.js"
 
@@ -9,7 +10,7 @@ export class PriceTool {
     
 
     static init() {
-        PriceTool.draw_tool = new DrawTool('white')
+        PriceTool.draw_tool = new DrawTool('white', new HandDraw())
         PriceTool.draw_tool.fx_downsampler = PriceTool.downsample
         Drawer.draw_register.push(PriceTool.draw)
         Mode.tools_register.push(PriceTool.draw_tool)

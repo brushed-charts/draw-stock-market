@@ -2,7 +2,6 @@ import { Drawer } from "./drawer.js";
 import { Canvas } from "./canvas.js";
 import { Mode } from "./mode.js";
 import { SaveToJSON } from "./save.js";
-import { HandDraw } from "./handdraw.js";
 import { Interaction } from "./interaction.js";
 import { PriceTool } from "./price.js";
 import { HeadAndShouldersTool } from "./headandshoulders.js";
@@ -49,9 +48,8 @@ function init() {
     Canvas.init()
     Drawer.init()
     Mode.init()
-    PriceTool.init()
     HeadAndShouldersTool.init()
-    HandDraw.init()
+    PriceTool.init()
     Mode.set_to_price()
 }
 

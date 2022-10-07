@@ -1,6 +1,7 @@
 import { Drawer } from "./drawer.js"
 import { DrawTool } from "./drawtool.js"
 import { Mode } from "./mode.js"
+import { PointDraw } from "./pointdraw.js"
 
 export class HeadAndShouldersTool {
     static draw_tool = undefined
@@ -8,7 +9,7 @@ export class HeadAndShouldersTool {
     
 
     static init() {
-        HeadAndShouldersTool.draw_tool = new DrawTool('red')
+        HeadAndShouldersTool.draw_tool = new DrawTool('red', new PointDraw())
         HeadAndShouldersTool.draw_tool.fx_downsampler = HeadAndShouldersTool.downsample
         Drawer.draw_register.push(HeadAndShouldersTool.draw)
         Mode.tools_register.push(HeadAndShouldersTool.draw_tool)

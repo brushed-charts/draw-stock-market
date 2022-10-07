@@ -15,4 +15,13 @@ export class Utils {
     static distance_between_point(pointA, pointB) {
         return Math.hypot(pointB.x - pointA.x, pointB.y - pointA.y)
     }
+
+    static downsample(resolution, curve) {
+        const curve_downsampled = []
+        const interval = Math.ceil(curve.length / resolution)
+        for(let i = 0; i < curve.length; i+=interval) {
+            curve_downsampled.push(curve[i])
+        }
+        return curve_downsampled
+    }
 }

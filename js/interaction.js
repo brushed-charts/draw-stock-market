@@ -5,7 +5,6 @@ export class Interaction {
     static last_keyboard_event = undefined
 
     static on_touch_start(event) {
-
         event.preventDefault();
         const touches = event.changedTouches;
         HandDraw.on_touch_down(touches[0], Interaction.last_keyboard_event)

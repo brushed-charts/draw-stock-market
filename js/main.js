@@ -5,6 +5,7 @@ import { SaveToJSON } from "./save.js";
 import { HandDraw } from "./handdraw.js";
 import { Interaction } from "./interaction.js";
 import { PriceTool } from "./price.js";
+import { HeadAndShouldersTool } from "./headandshoulders.js";
 
 function on_ready() {
     document.addEventListener('keydown', keyboard_down_callback)
@@ -21,12 +22,15 @@ function keyboard_down_callback(event) {
         init()
     }
     else if(event.code == 'KeyC') {
-        Mode.clear_handler()
+        Mode.current_drawtool.clear()
         Canvas.clear()
         Drawer.draw()
     }
-    else if(event.code == 'KeyD') {
-        
+    else if(event.code == 'KeyH') {
+        Mode.set_to_head_and_shoulders()
+    }
+    else if(event.code == 'KeyP') {
+        Mode.set_to_price()
     }
     else if(event.code == 'Enter') {
         SaveToJSON.save()
@@ -46,6 +50,7 @@ function init() {
     Drawer.init()
     Mode.init()
     PriceTool.init()
+    HeadAndShouldersTool.init()
     HandDraw.init()
     Mode.set_to_price()
 }

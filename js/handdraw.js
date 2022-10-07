@@ -20,6 +20,7 @@ export class HandDraw {
     
     static on_touch_down(touch_event, keyboard_event) {
         HandDraw.isDrawing = true
+        HandDraw.add_to_curve(touch_event)
         Canvas.clear()
         Drawer.draw()
     }
@@ -33,11 +34,15 @@ export class HandDraw {
 
     static on_touch_move(touch_event, keyboard_event) {
         if(!HandDraw.isDrawing) return
+        HandDraw.add_to_curve(touch_event)
+        Canvas.clear()
+        Drawer.draw()
+    }
+
+    static add_to_curve(touch_event) {
         const point = new Point(touch_event.clientX, touch_event.clientY)
         if(!HandDraw.should_draw_this_point(point)) return
         Mode.current_drawtool.curve.push(point)
-        Canvas.clear()
-        Drawer.draw()
     }
 
     static should_draw_this_point(current_point) {

@@ -11,7 +11,6 @@ export class PriceTool {
     static init() {
         PriceTool.draw_tool = new DrawTool('white')
         PriceTool.draw_tool.fx_downsampler = PriceTool.downsample
-        Mode.current_drawtool = PriceTool.draw_tool
         Drawer.draw_register.push(PriceTool.draw)
         Mode.tools_register.push(PriceTool.draw_tool)
     }

@@ -6,4 +6,8 @@ export class DrawTool {
     constructor(color = 'white') {
         this.color = color
     }
+
+    clear() {
+        this.curve = []
+    }
 }

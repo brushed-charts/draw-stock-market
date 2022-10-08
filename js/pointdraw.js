@@ -15,20 +15,19 @@ export class PointDraw {
         this.isDrawing = false
     }
 
-    on_touch_down(touch_event, keyboard_event) {
-        this.add_to_curve(touch_event)
+    on_touch_down(interaction_event) {
+        this.add_to_curve(interaction_event)
         this.call_downsample_function()
         Canvas.clear()
         Drawer.draw()
     }
 
-    on_touch_up(touch_event, keyboard_event) {
-    }
+    on_touch_up(_) {}
 
-    on_touch_move(touch_event, keyboard_event) {}
+    on_touch_move(_) {}
 
-    add_to_curve(touch_event) {
-        const point = new Point(touch_event.clientX, touch_event.clientY)
+    add_to_curve(interaction_event) {
+        const point = new Point(interaction_event.x, interaction_event.y)
         Mode.current_drawtool.curve.push(point)
     }
 

@@ -18,26 +18,26 @@ export class HandDraw {
     }
 
     
-    on_touch_down(touch_event, keyboard_event) {
+    on_touch_down(_) {
         this.isDrawing = true
     }
 
-    on_touch_up(touch_event, keyboard_event) {
+    on_touch_up(_) {
         this.isDrawing = false
         this.call_downsample_function()
         Canvas.clear()
         Drawer.draw()
     }
 
-    on_touch_move(touch_event, keyboard_event) {
+    on_touch_move(interaction_event) {
         if(!this.isDrawing) return
-        this.add_to_curve(touch_event)
+        this.add_to_curve(interaction_event)
         Canvas.clear()
         Drawer.draw()
     }
 
-    add_to_curve(touch_event) {
-        const point = new Point(touch_event.clientX, touch_event.clientY)
+    add_to_curve(interaction_event) {
+        const point = new Point(interaction_event.x, interaction_event.y)
         if(!this.should_draw_this_point(point)) return
         Mode.current_drawtool.curve.push(point)
     }

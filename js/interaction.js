@@ -3,6 +3,18 @@ import { Drawer } from "./drawer.js";
 import { Mode } from "./mode.js";
 import { SaveToJSON } from "./save.js";
 
+export class InteractionEvent {
+    x = undefined
+    y = undefined
+    last_keyboard_event = undefined
+
+    constructor(x, y, keyboard_event) {
+        this.x = x
+        this.y = y
+        this.last_keyboard_event = keyboard_event
+    }
+}
+
 export class Interaction {
     static last_keyboard_event = undefined
     static active_button_class = 'button-active'
@@ -24,35 +36,51 @@ export class Interaction {
         Interaction.enable_price_mode()
     }
 
+    static build_interaction_event(evt) {
+        const rect = Canvas.src.getBoundingClientRect();
+        return new InteractionEvent(
+            ((evt.clientX - rect.left) / (rect.right - rect.left)) * Canvas.src.width,
+            ((evt.clientY - rect.top) / (rect.bottom - rect.top)) * Canvas.src.height,
+            Interaction.last_keyboard_event
+        )
+    };
+
+
     static on_touch_start(event) {
         event.preventDefault();
         const touches = event.changedTouches;
-        Mode.current_drawtool.draw_style.on_touch_down(touches[0], Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(touches[0])
+        Mode.current_drawtool.draw_style.on_touch_down(interaction_event, Interaction.last_keyboard_event)
     }
 
     static on_touch_up(event) {
         event.preventDefault();
         const touches = event.changedTouches;
-        Mode.current_drawtool.draw_style.on_touch_up(touches[0], Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(touches[0])
+        Mode.current_drawtool.draw_style.on_touch_up(interaction_event, Interaction.last_keyboard_event)
     }
 
     static on_touch_move(event) {
         event.preventDefault();
         const touches = event.changedTouches;
-        Mode.current_drawtool.draw_style.on_touch_move(touches[0], Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(touches[0])
+        Mode.current_drawtool.draw_style.on_touch_move(interaction_event, Interaction.last_keyboard_event)
     }
     
 
     static on_mouse_down(event) {
-        Mode.current_drawtool.draw_style.on_touch_down(event, Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(event)
+        Mode.current_drawtool.draw_style.on_touch_down(interaction_event, Interaction.last_keyboard_event)
     }
 
     static on_mouse_up(event) {
-        Mode.current_drawtool.draw_style.on_touch_up(event, Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(event)
+        Mode.current_drawtool.draw_style.on_touch_up(interaction_event, Interaction.last_keyboard_event)
     }
 
     static on_mouse_move(event) {
-        Mode.current_drawtool.draw_style.on_touch_move(event, Interaction.last_keyboard_event)
+        const interaction_event = Interaction.build_interaction_event(event)
+        Mode.current_drawtool.draw_style.on_touch_move(interaction_event, Interaction.last_keyboard_event)
     }
 
     static enable_price_mode() {

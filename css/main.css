@@ -39,23 +39,28 @@ canvas {
 }
 
 #handdraw-icon {
-    mask: url("../img/handdraw.svg");
+    mask-image: url("../img/handdraw.svg");
+    -webkit-mask-image: url("../img/handdraw.svg");
 }
 
 #head_and_shoulders-icon {
-    mask: url("../img/head_and_shoulders.svg");
+    mask-image: url("../img/head_and_shoulders.svg");
+    -webkit-mask-image: url("../img/head_and_shoulders.svg");
 }
 
 #save-icon {
-    mask: url("../img/save_cloud.svg");
+    mask-image: url("../img/save_cloud.svg");
+    -webkit-mask-image: url("../img/save_cloud.svg");
 }
 
 #clear-icon {
-    mask: url("../img/clear.svg");
+    mask-image: url("../img/clear.svg");
+    -webkit-mask-image: url("../img/clear.svg");
 }
 
 #reset-icon {
-    mask: url("../img/reset.svg");
+    mask-image: url("../img/reset.svg");
+    -webkit-mask-image: url("../img/reset.svg");
 }
 
 .icon {

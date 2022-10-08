@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;">
+    <title>happy_news</title>
+    <line x1="2" y1="100" x2="17" y2="40" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <line x1="17" y1="40" x2="34" y2="80" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <line x1="34" y1="80" x2="51" y2="10" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <line x1="51" y1="10" x2="68" y2="80" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <line x1="68" y1="80" x2="85" y2="40" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <line x1="85" y1="40" x2="100" y2="100" style="stroke:rgb(0,0,0);stroke-width:8" />
+    <!-- <circle cx="17" cy="40" r="6" fill="black" />
+    <circle cx="34" cy="80" r="6" fill="black" />
+    <circle cx="51" cy="10" r="6" fill="black" />
+    <circle cx="68" cy="80" r="6" fill="black" />
+    <circle cx="85" cy="40" r="6" fill="black" /> -->
+</svg>

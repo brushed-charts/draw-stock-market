@@ -17,22 +17,19 @@ function on_ready() {
 function keyboard_down_callback(event) {
     Interaction.last_keyboard_event = event
     if(event.code == 'KeyR') {
-        Mode.set_to_price()
-        init()
+        Interaction.reset()
     }
     else if(event.code == 'KeyC') {
-        Mode.current_drawtool.clear()
-        Canvas.clear()
-        Drawer.draw()
+        Interaction.clear()
     }
     else if(event.code == 'KeyH') {
-        Mode.set_to_head_and_shoulders()
+        Interaction.enable_head_and_shoulder_mode()
     }
     else if(event.code == 'KeyP') {
-        Mode.set_to_price()
+        Interaction.enable_price_mode()
     }
     else if(event.code == 'Enter') {
-        SaveToJSON.save()
+        Interaction.handle_save_mode
     }
 }
 
@@ -50,7 +47,7 @@ function init() {
     Mode.init()
     HeadAndShouldersTool.init()
     PriceTool.init()
-    Mode.set_to_price()
+    Interaction.init(init)
 }
 
 

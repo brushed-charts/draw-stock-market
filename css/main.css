@@ -1,13 +1,16 @@
-body {
+html, body {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     margin: 0px;
+    background-color: rgb(43, 43, 43);
 }
 
 canvas {
+    position: relative;
+    display: block;
     width: 100%;
     height: 100%;
-    background-color: rgb(43, 43, 43);
 }
 
 #info_box {
@@ -27,4 +30,49 @@ canvas {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.303);
     color: white;
+}
+
+
+#toolbar {
+    height: 50px;
+    background-color: rgb(20, 20, 20);
+}
+
+#handdraw-icon {
+    mask: url("../img/handdraw.svg");
+}
+
+#head_and_shoulders-icon {
+    mask: url("../img/head_and_shoulders.svg");
+}
+
+#save-icon {
+    mask: url("../img/save_cloud.svg");
+}
+
+#clear-icon {
+    mask: url("../img/clear.svg");
+}
+
+#reset-icon {
+    mask: url("../img/reset.svg");
+}
+
+.icon {
+    display: inline-block;
+    background-color: rgb(209, 208, 208);
+    height: 30px;
+    width: 30px;
+    margin-top: 9px;
+    margin-left: 25px;
+    margin-right: 25px;
+    mask-size: cover;
+    cursor: pointer;
+    
+}
+
+.icon:hover,
+.icon:focus,
+.button-active {
+    background-color: rgb(133, 60, 236);
 }

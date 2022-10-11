@@ -30,7 +30,7 @@ export class Interaction {
         Interaction.main_init_function = main_init_function
         this.price_button.addEventListener('click', this.enable_price_mode)
         this.head_and_shoulders_button.addEventListener('click', this.enable_head_and_shoulder_mode)
-        this.save_button.addEventListener('click', this.handle_save_mode)
+        this.save_button.addEventListener('click', this.save)
         this.reset_button.addEventListener('click', this.reset)
         this.clear_button.addEventListener('click', this.clear)
         Interaction.enable_price_mode()
@@ -95,7 +95,7 @@ export class Interaction {
         Interaction.activate_button(Interaction.head_and_shoulders_button)
     }
     
-    static handle_save_mode() {
+    static save() {
         SaveToJSON.save()
     }
 

@@ -5,14 +5,13 @@ import { SaveToJSON } from "./save.js";
 import { Interaction } from "./interaction.js";
 import { PriceTool } from "./price.js";
 import { HeadAndShouldersTool } from "./headandshoulders.js";
+import { FirestoreTool } from "./firestore.js";
 
 function on_ready() {
     document.addEventListener('keydown', keyboard_down_callback)
     document.addEventListener('keyup', keyboard_up_callback)
     init()
-
 }
-
 
 function keyboard_down_callback(event) {
     Interaction.last_keyboard_event = event
@@ -28,20 +27,19 @@ function keyboard_down_callback(event) {
     else if(event.code == 'KeyP') {
         Interaction.enable_price_mode()
     }
-    else if(event.code == 'Enter') {
-        Interaction.handle_save_mode
+    else if(event.code == 'KeyS') {
+        if(!event.ctrlKey && !event.metaKey) return
+        event.preventDefault()
+        Interaction.save()
     }
 }
-
-
 
 function keyboard_up_callback(_event) {
     Interaction.last_keyboard_event = undefined
 }
 
-
 function init() {
-    SaveToJSON.init()
+    SaveToJSON.init(new FirestoreTool())
     Canvas.init()
     Drawer.init()
     Mode.init()

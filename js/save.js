@@ -14,6 +14,7 @@ export class SaveToJSON {
         const concated_saving_dict = SaveToJSON.save_each_object()
         const json_output = SaveToJSON.convert_to_json(concated_saving_dict)
         SaveToJSON.tool.save(SaveToJSON.boardID, json_output).then((_) => console.log('saved'))
+
     }
 
     static save_each_object() {

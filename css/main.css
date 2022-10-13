@@ -25,10 +25,10 @@ canvas {
     color: white;
 }
 
-#noise_info {
+#reset_counter {
     display: inline-block;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.303);
+    background-color: rgba(0, 0, 0, 0.342);
     color: white;
 }
 

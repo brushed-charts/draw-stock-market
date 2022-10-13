@@ -16,6 +16,7 @@ export class InteractionEvent {
 }
 
 export class Interaction {
+    static counter = 0
     static last_keyboard_event = undefined
     static active_button_class = 'button-active'
     static main_init_function = undefined
@@ -33,6 +34,8 @@ export class Interaction {
         this.save_button.addEventListener('click', this.save)
         this.reset_button.addEventListener('click', this.reset)
         this.clear_button.addEventListener('click', this.clear)
+        Interaction.counter += 1
+        Interaction.refresh_visual_counter()
         Interaction.enable_price_mode()
     }
 
@@ -81,6 +84,10 @@ export class Interaction {
     static on_mouse_move(event) {
         const interaction_event = Interaction.build_interaction_event(event)
         Mode.current_drawtool.draw_style.on_touch_move(interaction_event, Interaction.last_keyboard_event)
+    }
+
+    static refresh_visual_counter() {
+        document.getElementById('reset_counter').innerText = Interaction.counter
     }
 
     static enable_price_mode() {
